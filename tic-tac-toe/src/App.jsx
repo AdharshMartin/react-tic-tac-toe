@@ -20,7 +20,8 @@ function handleClick(i) {
   const nextValue = value.slice();
 
   if (nextValue[i] || Winningcheck(nextValue)) return;
-  
+
+
   if (xNext){
     nextValue[i] = 'X';
   }
@@ -31,10 +32,21 @@ function handleClick(i) {
   setValue(nextValue);
   setXNext(!xNext)
 }
+ const winner = Winningcheck(value);
+
+  let currentstatus = '';
+  if (winner){
+    currentstatus = 'Winner: ' + (xNext ? 'O' : 'X');
+  }
+  else{
+    currentstatus = 'Next player: ' + (xNext ? 'X' : 'O');
+  }
 
  return (
+  
    <div className="page">
      <div className="board">
+       <div className="status">{currentstatus}</div>
        <Square value={value[0]} onClick={() => handleClick(0)} />
        <Square value={value[1]} onClick={() => handleClick(1)} />
        <Square value={value[2]} onClick={() => handleClick(2)} />
@@ -46,6 +58,7 @@ function handleClick(i) {
        <Square value={value[8]} onClick={() => handleClick(8)} />
      </div>
    </div>
+ 
  )
  }
 
