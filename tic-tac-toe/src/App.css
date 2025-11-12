@@ -13,6 +13,13 @@
   align-items: center;
   justify-content: center;
 }
+body {
+  background-image: url('https://wallpapercave.com/wp/wp11898288.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 
 .board {
   display: grid;
